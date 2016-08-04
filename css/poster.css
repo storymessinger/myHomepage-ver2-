@@ -1,0 +1,195 @@
+        @charset "utf-8";
+    @import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,200,300,500,600,700);
+    @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,400italic,300italic,600,700italic,700,600italic);
+    /*    Reset CSS  */
+    
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    ol,
+    ul {
+        list-style: none;
+    }
+    
+    a {
+        outline: 0;
+        text-decoration: none;
+        color: #bbb;
+    }
+    
+    img {
+        border: 0;
+    }
+    /* Basics */
+    
+    * {
+        -webkit-box-sizing: border-box: -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    /*    From here    */
+    
+    html {
+        width: 100%;
+        height: 100%;
+    }
+    /* Selected text is highlighted in this color */
+    
+    p::selection {
+        color: #111;
+        background: #eeff41;
+    }
+    
+    body {
+        display: flex;
+        font-family: 'Source Sans Pro', sans-serif;
+        margin: 0;
+        padding: 0;
+        min-height: 100%;
+    }
+    
+    .main {
+        height: 100%;
+        display: flex;
+        overflow: hidden;
+    }
+    
+    .main_side {
+        display: flex;
+        flex-direction: column;
+        width: 235px;
+        background-color: #fff;
+        margin-right: 4px;
+    }
+    
+    .main_content {
+        float: none;
+        width: 100%;
+        background-color: #fafafa;
+    }
+    
+    .logo {
+        width: 235px;
+        margin-top: 46px;
+    }
+    
+    .side_nav {}
+    
+    .side_nav ul {
+        list-style: none;
+    }
+    
+    .side_nav ul li {
+        display: list-item;
+    }
+    
+    .side_nav a {
+        color: #424242;
+        font-weight: 400;
+        font-size: 14px;
+        padding: 20px 10px;
+    }
+    /*.side_nav a:before {
+    padding-left: 34px;
+    content: "\f120";
+    padding-right: 15px;
+    font-family: FontAwesome;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: graysclae;
+}*/
+    
+    .btn_PROJECTS_toggle::after {
+        position:relative;
+        display: inline-block;
+        width: 4px;
+        height: 4px;
+        margin: 0 0 0 10px;
+        content: '';
+        transform: rotate(45deg);
+        border-right: 1px solid #000;
+        border-bottom: 1px solid #000;
+        vertical-align: 4px;
+        
+    }
+    
+    .section {
+        display: flex;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: auto;
+        margin-top: 160px;
+    }
+    
+    .section .poster_box {
+        width: 340px;
+        margin-bottom: 80px;
+        margin-right: 50px;
+        margin-left: 50px;
+        position: relative;
+        border: 1px solid #b8b8b8;
+    }
+    
+    .section .poster_text {
+        position: absolute;
+        bottom: -50px;
+    }
+    
+    @media screen and (max-width: 1500px) {
+        .main {
+            flex-direction: column;
+        }
+        .main_side {
+            width: 100%;
+            height: 115px;
+            position: relative;
+            flex-direction: row;
+        }
+        .logo {
+            width: 180px;
+            margin-left: 50px;
+            margin-top: 20px;
+        }
+        .headMenu_list {
+            display: flex;
+            margin-top: 35px;
+        }
+        .headMenu_list > li:first-child {
+            margin-left: 40px;
+        }
+        .btn_HOME:before {
+            content: "";
+            border-left: 1px solid #a5a5a5;
+            margin-right: 30px;
+        }
+        .headMenu_item {
+            padding: 10px 6px;
+        }
+        .section {
+            margin-top: 40px;
+        }
+    }
+    
+    @media screen and (max-width: 1050px) {
+        .section {
+            margin-left: 5vw;
+            margin-right: 5vw;
+        }
+        .section .poster_box {
+            width: 80vw;
+            margin-left: 5vw;
+            margin-right: 5vw;
+        }
+    }
+    
+    @media screen and (max-width: 650px) {
+        .main_side {
+            display: none;
+        }
