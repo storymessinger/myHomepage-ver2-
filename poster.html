@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Font_awesome -->
     <link rel="stylesheet" href="font_awesome/css/font-awesome.min.css">
-    <title> Design by JD </title>
+    <title> Portfolio site of Jundong </title>
     <!-- CSSs -->
     <link type="text/css" rel="stylesheet" href="css/poster.css" />
     <!-- Jss -->
@@ -17,7 +17,7 @@
     <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
     <script type="text/javascript" src="js/prefixfree.min.js"></script>
     <!--my Js -->
-    <script type="text/javascript" src="js/xxxx.js"></script>
+    <script type="text/javascript" src="js/poster.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
@@ -38,12 +38,12 @@
         <div class="main_content">
             <div class="section">
                 <div class="poster_box">
-                    <a href="#poster_graduation_01_modal" data-toggle="modal"><img src="imgs/poster_graduation_01-450.jpg" srcset="imgs/poster_graduation_01-450.jpg 450w, imgs/poster_graduation_01-650.jpg 650w, imgs/poster_graduation_01-1050.jpg 1050w" sizes="(min-width:1024px) 340px, 80vw" class="img-responsive"></a>
+                    <a href="#poster_modal_2" data-toggle="modal"><img src="imgs/poster_graduation_01-450.jpg" srcset="imgs/poster_graduation_01-450.jpg 450w, imgs/poster_graduation_01-650.jpg 650w, imgs/poster_graduation_01-1050.jpg 1050w" sizes="(min-width:1024px) 340px, 80vw" class="img-responsive"></a>
                     <div class="poster_text"> ID KAIST 2015 GRADUATION POSTER 01
                         <br /> 2015 </div>
                 </div>
                 <div class="poster_box">
-                    <a href="#poster_graduation_02_modal" data-toggle="modal"><img src="imgs/poster_graduation_02-450.png" srcset="imgs/poster_graduation_02-450.png 450w, imgs/poster_graduation_02-650.png 650w, imgs/poster_graduation_02-1050.png 1050w" sizes="(min-width:1024px) 340px, 80vw" class="img-responsive"></a>
+                    <img src="imgs/poster_graduation_02-450.png" srcset="imgs/poster_graduation_02-450.png 450w, imgs/poster_graduation_02-650.png 650w, imgs/poster_graduation_02-1050.png 1050w" sizes="(min-width:1024px) 340px, 80vw" class="img-responsive img-modal">
                     <div class="poster_text"> ID KAIST 2015 GRADUATION POSTER 02
                         <br /> 2015 </div>
                 </div>
@@ -77,7 +77,8 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="poster_graduation_01_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        
+        <div class="modal fade" id="poster_modal_2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -88,19 +89,20 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="poster_graduation_02_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        
+        <div class="modal fade" id="poster_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="myModalLabel">ID KAIST 2015 GRADUATION POSTER 02</h4> </div>
-                    <div class="modal-body"> <img src="imgs/poster_graduation_02-1250.png" class="img-responsive"> </div>
+                        <h4 class="modal-title" id="myModalLabel">ID KAIST 2015 GRADUATION POSTER 01</h4> </div>
+                    <div class="modal-body"> <img src="imgs/poster_graduation_01-1250.jpg" class="img-responsive"> </div>
                     <div class="modal-footer"> </div>
                 </div>
             </div>
         </div>
         
-        // FOR GRUNT LIVE-RELOAD
+        // For grunt-live reload
         <script src="//localhost:35729/livereload.js"></script>
 </body>
 
