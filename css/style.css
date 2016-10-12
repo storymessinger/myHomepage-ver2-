@@ -68,7 +68,8 @@ body {
 .main {
     height: 100%;
     display: flex;
-    background-color: #f44336;
+    background-color: white;
+/*    background-color: #f44336;*/
 }
 
 .main .logo_gif {
