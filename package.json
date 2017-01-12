@@ -1,0 +1,22 @@
+{
+  "name": "version2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/storymessinger/storymessinger.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/storymessinger/storymessinger.github.io/issues"
+  },
+  "homepage": "https://github.com/storymessinger/storymessinger.github.io#readme",
+  "dependencies": {
+    "jquery": "^3.1.1"
+  }
+}
