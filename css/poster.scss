@@ -32,6 +32,7 @@
                 left: 20px;
                 width: 80px;
                 height: 80px;
+                z-index: 1001;
                 img {
                     width: 100%;
                 }
@@ -57,39 +58,20 @@
                 }
             }
         }
-        .logo {
-            width: 235px;
-            margin-top: 46px;
-        }
+        .side_nav {
+            ul {
+                list-style: none;
+                li {
+                    display: list-item;
 
-        .side_nav {}
-
-        .side_nav ul {
-            list-style: none;
-        }
-
-        .side_nav ul li {
-            display: list-item;
-        }
-
-        .side_nav a {
-            color: #424242;
-            font-weight: 400;
-            font-size: 14px;
-            padding: 20px 10px;
-        }
-
-        .btn_PROJECTS_toggle::after {
-            position: relative;
-            display: inline-block;
-            width: 4px;
-            height: 4px;
-            margin: 0 0 0 10px;
-            content: '';
-            transform: rotate(45deg);
-            border-right: 1px solid #000;
-            border-bottom: 1px solid #000;
-            vertical-align: 4px;
+                }
+            }
+            a {
+                color: #424242;
+                font-weight: 400;
+                font-size: 14px;
+                padding: 20px 10px;
+            }
         }
 
         section {
@@ -117,17 +99,6 @@
         @media screen and (max-width: 1500px) {
             .main {
                 flex-direction: column;
-            }
-            .main_side {
-                width: 100%;
-                height: 115px;
-                position: relative;
-                flex-direction: row;
-            }
-            .logo {
-                width: 180px;
-                margin-left: 50px;
-                margin-top: 20px;
             }
             .headMenu_list {
                 display: flex;
@@ -162,7 +133,8 @@
         }
 
         @media screen and (max-width: 650px) {
-            .main_side {
-                display: none;
+            .main .logo-box {
+                width: 40px;
+                height: 40px;
             }
         }
