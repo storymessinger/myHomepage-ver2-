@@ -1,5 +1,5 @@
-console.log('working!!')
-console.log(Renderer);
+const displace = window.displacejs;
+
 
 var font = JSON.parse(document.getElementById('font').innerHTML);
 
@@ -10,26 +10,51 @@ var textbox = Renderer.createTextbox({
   text: 'HAPPY\nBIRTHDAY'
 });
 
-Renderer.start({
-  container: window,
-  data: {
-    textboxList: [textbox],
-    fontList: [font],
-  },
-  textureUrl: '/font-textures'
-});
 
 
-
-// var vid = document.getElementById("jundong");
-// vid.addEventListener('mouseenter', function(){
-//   vid.play();
-// })
-// vid.addEventListener('mouseleave', function(){
-//   vid.pause();
-// })
+setTimeout(function(){
+  addVid('jundong');
+}, 500);
 
 
+function addVid (name) {
+  var vid = document.createElement('video');
+  vid.setAttribute('src', '/videos/'+name+'.mp4');
+  vid.setAttribute('height', 250);
+  vid.setAttribute('autoplay', true);
+  vid.setAttribute('webkit-playsinline', true);
+  vid.setAttribute('playsinlinee', true);
 
 
-console.log('started');
+  var vidBox = document.createElement('div');
+  vidBox.setAttribute('id', name);
+  vidBox.setAttribute('class', 'vid-box');
+  vidBox.appendChild(vid);
+
+
+  vidBox.addEventListener('mouseenter', function(){
+    vid.play();
+  });
+  vidBox.addEventListener('mouseleave', function(){
+    vid.pause();
+  })
+
+
+  document.querySelector('.cards-container').appendChild(vidBox);
+
+  console.log(displace);
+
+  displace(vidBox, {
+    constrain: true,
+    relativeTo: document.querySelector('.cards-container')
+  })
+  
+  Renderer.start({
+    container: window,
+    data: {
+      textboxList: [textbox],
+      fontList: [font],
+    },
+    textureUrl: '/font-textures'
+  });
+}
