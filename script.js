@@ -73,13 +73,14 @@ function addVid (name) {
     relativeTo: document.querySelector('.cards-container')
   })
   
-  Renderer.start({
-    container: window,
-    data: {
-      textboxList: [textbox],
-      fontList: [font],
-    },
-    textureUrl: '/font-textures',
-    pixelRatio: 0.8
-  });
+  
 }
+Renderer.start({
+  container: window,
+  data: {
+    textboxList: [textbox],
+    fontList: [font],
+  },
+  textureUrl: '/font-textures',
+  pixelRatio: 1.2
+});
