@@ -10,67 +10,87 @@ var textbox = Renderer.createTextbox({
   text: 'HAPPY\nBIRTHDAY'
 });
 
-// var canvas = document.createElement('canvas');
-// canvas.width = 300;
-// canvas.height = 300;
-// var ctx = canvas.getContext('2d');
-
-
 for (var i=0; i<8; i++) {
   addVid('jundong-comp_'+i);
 }
 
-
+var moveCount = 0;
+var cancelClick = false;
+var zInc = 11;
 
 
 function addVid (name) {
+
+  var card = document.createElement('div');
+  card.setAttribute('id', name);
+  card.setAttribute('class', 'card');
+
+  var vidBox = document.createElement('div');
+  vidBox.setAttribute('class', 'vid-box');
+  card.appendChild(vidBox);
+
   var vid = document.createElement('video');
   vid.setAttribute('src', '/videos/'+name+'.mp4');
   vid.setAttribute('height', 300);
-  vid.setAttribute('autoplay', true);
-  vid.setAttribute('webkit-playsinline', true);
-  vid.setAttribute('playsinlinee', true);
-
-
-  var vidBox = document.createElement('div');
-  vidBox.setAttribute('id', name);
-  vidBox.setAttribute('class', 'vid-box');
+  vid.setAttribute('loop', "true");
   vidBox.appendChild(vid);
+  
+  var shadow = document.createElement('div');
+  shadow.classList.add('shadow');
+  card.appendChild(shadow);
 
 
-  vidBox.addEventListener('mouseenter', function(){
-    // attach video
-    // console.log(vidBox._time);
-    // if (vidBox._time) vid.currentTime = vidBox._time;
-    vid.play();
+
+  card.addEventListener('click', function(){
+    if (cancelClick) {
+      card.classList.remove('mousedown');
+      cancelClick = false;
+      return;
+    }
+
+    if (vid.paused) {
+      vid.play();
+      card.classList.add('playing');
+    }
+    else {
+      vid.pause();
+      card.classList.remove('playing');
+    }
+    
+  })
+
+  card.addEventListener('mouseenter', function() {
+    // card.setAttribute('style', 'z-index: 10;');
   });
 
-  vidBox.addEventListener('mouseleave', function(){
-    // vidBox._time = vid.currentTime;
-    vid.pause();
+  card.addEventListener('mousedown', function() {
+    card.classList.add('mousedown');
 
-    // ctx.drawImage(vid, 0, 0, canvas.width, canvas.height);
-    // var dataURI = canvas.toDataURL('image/jpeg');
-    // vidBox.removeChild(vid);
+    // Increment z-index
+    var styleStrList = card.getAttribute('style').split(/z-index:.*;/);
+    styleStrList.push('z-index: ' + zInc++ +';');
+    var styleStr = styleStrList.join('');
+    card.setAttribute('style',styleStr);
+  });
 
-    // var img = document.createElement('img');
-    // img.setAttribute('src', dataURI);
-    // vidBox.appendChild(img);
-  })
-
-  vidBox.addEventListener('click', function(){
-    vid.load();
-  })
+  card.addEventListener('mouseup', function() {
+    card.classList.remove('mousedown');
+    moveCount = 0;
+  });
 
   var maxY = window.innerHeight - 300;
   var maxX = window.innerWidth - 300;
-  vidBox.setAttribute('style', 'left: '+maxX*Math.random()+'px; top: '+maxY*Math.random()+'px;'); 
+  card.setAttribute('style', 'left: '+maxX*Math.random()+'px; top: '+maxY*Math.random()+'px;'); 
 
-  document.querySelector('.cards-container').appendChild(vidBox);
+  document.querySelector('.cards-container').appendChild(card);
 
-  displace(vidBox, {
+  displace(card, {
     constrain: true,
-    relativeTo: document.querySelector('.cards-container')
+    relativeTo: document.querySelector('.cards-container'),
+    onMouseMove: function() {
+      moveCount++;
+      if (moveCount > 10) cancelClick = true;
+    }
   })
   
   
@@ -82,5 +102,5 @@ Renderer.start({
     fontList: [font],
   },
   textureUrl: '/font-textures',
-  pixelRatio: 1.2
+  pixelRatio: 1
 });
