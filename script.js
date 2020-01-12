@@ -108,5 +108,5 @@ Renderer.start({
     fontList: [font],
   },
   textureUrl: '/font-textures',
-  pixelRatio: 1
+  pixelRatio: 0.8
 });
