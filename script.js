@@ -1,6 +1,5 @@
 const displace = window.displacejs;
 
-
 var font = JSON.parse(document.getElementById('font').innerHTML);
 
 var textbox = Renderer.createTextbox({
@@ -10,8 +9,8 @@ var textbox = Renderer.createTextbox({
   text: 'HAPPY\nBIRTHDAY'
 });
 
-for (var i=0; i<8; i++) {
-  addVid('jundong-comp_'+i);
+for (var i=0; i<videoList.length; i++) {
+  addVid(videoList[i]);
 }
 
 var moveCount = 0;
@@ -30,7 +29,7 @@ function addVid (name) {
   card.appendChild(vidBox);
 
   var vid = document.createElement('video');
-  vid.setAttribute('src', '/videos/'+name+'.mp4');
+  vid.setAttribute('src', '/videos/'+name);
   vid.setAttribute('height', 300);
   vid.setAttribute('loop', "true");
   vidBox.appendChild(vid);
@@ -60,17 +59,24 @@ function addVid (name) {
   })
 
   card.addEventListener('mouseenter', function() {
-    // card.setAttribute('style', 'z-index: 10;');
-  });
 
-  card.addEventListener('mousedown', function() {
-    card.classList.add('mousedown');
+    // Animate card
+    if (!card.classList.contains('animating')) {
+      card.classList.add('animating');
+      setTimeout(function(){
+        card.classList.remove('animating');
+      }, 400);
+    }
 
     // Increment z-index
     var styleStrList = card.getAttribute('style').split(/z-index:.*;/);
     styleStrList.push('z-index: ' + zInc++ +';');
     var styleStr = styleStrList.join('');
     card.setAttribute('style',styleStr);
+  });
+
+  card.addEventListener('mousedown', function() {
+    card.classList.add('mousedown');
   });
 
   card.addEventListener('mouseup', function() {
