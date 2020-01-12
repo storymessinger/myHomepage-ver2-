@@ -30,7 +30,7 @@ function addVid (name) {
 
   var vid = document.createElement('video');
   vid.setAttribute('src', '/videos/'+name);
-  vid.setAttribute('height', 300);
+  // vid.setAttribute('height', 300);
   vid.setAttribute('loop', "true");
   vidBox.appendChild(vid);
   
